@@ -1,4 +1,4 @@
-# PARA: Probabilistic Adjacent Row Activation
+# How to Configure Row-Sampling-Based Rowhammer Defenses
 
 The code in this repository implements an analysis of Row-Sampling, a class of Rowhammer defenses. This analysis is 
 based on formulae presented in the following DRAMSec 2022 paper:
