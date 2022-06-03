@@ -112,9 +112,9 @@ if __name__ == '__main__':
 
     # Check if Inexact or Rounded flags were set. If so, report to the user
     if context.flags[Inexact]:
-        print(colored(255, 0, 0, 'Inexact answer: non-zero digits were discarded during rounding.'))
+        print(colored(255,204, 0, 'Inexact answer: non-zero digits were discarded during rounding.'))
     elif context.flags[Rounded]:
-        print(colored(255, 0, 0, 'Rounded answer: digits (possibly zeros) were discarded during rounding.'))
+        print(colored(255, 204, 0, 'Rounded answer: digits (possibly zeros) were discarded during rounding.'))
     if context.flags[Inexact] or context.flags[Rounded]:
-        print(colored(255, 0, 0, 'Try re-running the script with increased precision and see if the answer changes.'))
+        print(colored(255, 204, 0, 'Try re-running the script with increased precision and see if the answer changes.'))
 
