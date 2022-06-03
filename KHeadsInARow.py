@@ -1,8 +1,6 @@
-from decimal import *
-from tqdm import tqdm
-
-def InclusiveRange(start, stop):
-    return range(start, stop + 1)
+from decimal    import *
+from tqdm       import tqdm
+from utils      import InclusiveRange
 
 def NotKHeadsInARow(n, k, p):
     '''

@@ -1,7 +1,5 @@
 from decimal import *
-
-def InclusiveRange(start, stop):
-    return range(start, stop + 1)
+from utils   import InclusiveRange
 
 def NStepFibonacci(k, n):
     '''
