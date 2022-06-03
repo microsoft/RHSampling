@@ -17,9 +17,8 @@ The memory controller performs a mitigative action such as refreshing the
 corresponding victim rows. A sufficiently high sampling rate $p$ thwarts a Rowhammer
 attack because it ensures that an aggressor row cannot escape being sampled with
 very high probability.  Some of the earliest papers on Rowhammer introduced variants
-of sampling-based defenses under the names of ''Probabilistic Adjacent Row
-Activation'' (PARA) and ``Probabilistic Row
-Activation'' (PRA).
+of sampling-based defenses under the names of ``Probabilistic Adjacent Row Activation (PARA)``
+and ``Probabilistic Row Activation (PRA)``.
 
 Yoongu Kim, Ross Daly, Jeremie Kim, Chris Fallin, Ji Hye Lee, Donghyuk Lee, Chris Wilkerson, Konrad Lai, and Onur Mutlu\
 [Flipping Bits in Memory Without Accessing Them: An Experimental Study of DRAM Disturbance Errors](https://people.inf.ethz.ch/omutlu/pub/dram-row-hammer_isca14.pdf)\
