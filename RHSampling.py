@@ -20,19 +20,19 @@ if __name__ == '__main__':
     # Start with arg parsing
     description  = 'Analysis for a row-sampling Rowhammer defense\n'
     description += '  computes the probability of a RowHammer failure in a system\n'
-    description += '  for different configurations.'
+    description += '  given a sampling rate for different system configurations.'
     usage        = 'use "%(prog)s --help" for more information'
     parser = ArgumentParser(description=description, usage=usage, formatter_class=RawTextHelpFormatter)
-    parser.add_argument("--cfg",  metavar='cfg',    type=str, default='armSRV', help="armSRV/armFLEET/icxSRV/icxFLEET/A/B (default: %(default)s)", choices = ['armSRV', 'armFLEET', 'icxSRV', 'icxFLEET', 'A', 'B'])
-    parser.add_argument("--lt",   metavar='lt',     type=int, default=1,        help="System lifetime (hours)       (default: %(default)s)")
-    parser.add_argument("--th",   metavar='th',     type=int, default=8192,     help="Rowhammer threshold           (default: %(default)s)")
-    parser.add_argument("--prob", metavar='p',      type=Decimal,required=True, help="Probability of ACT selection  (required)")
-    parser.add_argument("--prec", metavar="prec",   type=int, default=100,      help="Precision of computation      (default: %(default)s)")
+    parser.add_argument("--cfg",  metavar='cfg',    type=str, default='armSRV', help="armSRV/armFLEET/icxSRV/icxFLEET/A/B   (default: %(default)s)", choices = ['armSRV', 'armFLEET', 'icxSRV', 'icxFLEET', 'A', 'B'])
+    parser.add_argument("--lt",   metavar='lt',     type=int, default=1,        help="Attack lifetime (hours)               (default: %(default)s)")
+    parser.add_argument("--th",   metavar='th',     type=int, default=8192,     help="Rowhammer threshold                   (default: %(default)s)")
+    parser.add_argument("--rate", metavar='p',      type=Decimal,required=True, help="Sampling rate (required)              (no default value)")
+    parser.add_argument("--prec", metavar="prec",   type=int, default=100,      help="Precision of computation              (default: %(default)s)")
     args = parser.parse_args()
     cfg  = args.cfg
     lt   = args.lt
     th   = args.th
-    p    = args.prob
+    p    = args.rate
     prec = args.prec
 
     print('System lifetime (hours): {}'.format(lt))
