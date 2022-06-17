@@ -97,17 +97,15 @@ if __name__ == '__main__':
 
     # 2/ Using the unsampled ACTs algorithm
     prob_no_sampling = pUnsampledConsecutiveACTs(W, th, p, MEMORY_OPTIMIZED)
+    # print('Probability of consecutive ACTs escaping sampling : {}'.format(format_e(prob_no_sampling)))
 
     # Compute the probability of a victim row escaping refreshing
     prob_no_refresh = PUnrefreshedRow(th, ddr.tRC, ddr.tRFW)
+    # print('Probability of victim row escaping refresh : {}'.format(format_e(prob_no_refresh)))
 
     # Compute probability of RH failure all banks in a system
     banks = Banks(host, dram)
     prob_rh_fail = Decimal('1.0') - (Decimal('1.0') - prob_no_sampling * prob_no_refresh) ** banks
-    
-    # Print result
-    print('Probability of consecutive ACTs escaping sampling : {}'.format(format_e(prob_no_sampling)))
-    print('Probability of victim row escaping refresh : {}'.format(format_e(prob_no_refresh)))
     print('Probability of RH failure in a system with {} banks: {}'.format(banks, format_e(prob_rh_fail)))
 
     # Given the nature of the computations above, the results are always inexact and rounded. 
