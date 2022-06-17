@@ -80,7 +80,7 @@ if __name__ == '__main__':
     W *= lt                                                 # W in lifetime
 
     print('Total # of banks: {}'.format(Banks(host, dram)))
-    print('Total # of ACTs in system\'s lifetime (in billions): {}'.format(W / 1000 / 1000 / 1000))
+    print('Approx # of ACTs in attack\'s lifetime (in billions): ~{:.2f}'.format(W / 1000 / 1000 / 1000))
 
     # Setup the context for the decimal operations. 
     # We do set traps on Inexact and Rounding, but flags only. A flag does not throw an exception, whereas trap does.
@@ -106,7 +106,7 @@ if __name__ == '__main__':
     # Compute probability of RH failure all banks in a system
     banks = Banks(host, dram)
     prob_rh_fail = Decimal('1.0') - (Decimal('1.0') - prob_no_sampling * prob_no_refresh) ** banks
-    print('Probability of RH failure in a system with {} banks: {}'.format(banks, format_e(prob_rh_fail)))
+    print('\nProbability of RH failure in a system with {} banks: {}'.format(banks, format_e(prob_rh_fail)))
 
     # Given the nature of the computations above, the results are always inexact and rounded. 
     # Showing a warning for an event that always occurs is a little silly.
