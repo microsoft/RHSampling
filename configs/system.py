@@ -1,6 +1,6 @@
 from collections    import namedtuple
 
-HOST = namedtuple('HOST', 'nodes sockets channels DPC')
+HOST = namedtuple('HOST', 'servers sockets channels DPC')
 DRAM = namedtuple('DRAM', 'ranks bgroups banks')
 
 '''
@@ -40,7 +40,7 @@ def Banks(HOST, DRAM):
     :rtype: int
     '''
 
-    return HOST.nodes * HOST.sockets * HOST.channels * HOST.DPC * DRAM.ranks * DRAM.bgroups * DRAM.banks
+    return HOST.servers * HOST.sockets * HOST.channels * HOST.DPC * DRAM.ranks * DRAM.bgroups * DRAM.banks
 
 def PrintConfig(HOST):
     '''
@@ -48,7 +48,7 @@ def PrintConfig(HOST):
     '''
     
     print('Host:')
-    print('  Nodes: {}'.format(HOST.nodes))
+    print('  Servers: {}'.format(HOST.servers))
     print('  Sockets: {}'.format(HOST.sockets))
     print('  Channels: {}'.format(HOST.channels))
     print('  DPC: {}'.format(HOST.DPC))
