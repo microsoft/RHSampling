@@ -20,7 +20,7 @@ for p in $p1 $p2 $p3 $p4 $p5 $p6
 do
     for th in $th1 $th2 $th3 $th4
     do
-        echo "python ../RHSampling.py --cfg A --prob $p --th $th --lt 1"
-        python ../RHSampling.py --cfg A --prob $p --th $th --lt 1
+        echo "python ../RHSampling.py --cfg A --rate $p --th $th --lt 1"
+        python ../RHSampling.py --cfg A --rate $p --th $th --lt 1
     done
 done
