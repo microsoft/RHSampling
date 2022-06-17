@@ -110,11 +110,14 @@ if __name__ == '__main__':
     print('Probability of victim row escaping refresh : {}'.format(format_e(prob_no_refresh)))
     print('Probability of RH failure in a system with {} banks: {}'.format(banks, format_e(prob_rh_fail)))
 
-    # Check if Inexact or Rounded flags were set. If so, report to the user
-    if context.flags[Inexact]:
-        print(colored(255,204, 0, 'Inexact answer: non-zero digits were discarded during rounding.'))
-    elif context.flags[Rounded]:
-        print(colored(255, 204, 0, 'Rounded answer: digits (possibly zeros) were discarded during rounding.'))
-    if context.flags[Inexact] or context.flags[Rounded]:
-        print(colored(255, 204, 0, 'Try re-running the script with increased precision and see if the answer changes.'))
+    # Given the nature of the computations above, the results are always inexact and rounded. 
+    # Showing a warning for an event that always occurs is a little silly.
+    # Comment out these warnings 
+    # # Check if Inexact or Rounded flags were set. If so, report to the user
+    # if context.flags[Inexact]:
+    #     print(colored(255,204, 0, 'Inexact answer: non-zero digits were discarded during rounding.'))
+    # elif context.flags[Rounded]:
+    #     print(colored(255, 204, 0, 'Rounded answer: digits (possibly zeros) were discarded during rounding.'))
+    # if context.flags[Inexact] or context.flags[Rounded]:
+    #     print(colored(255, 204, 0, 'Try re-running the script with increased precision and see if the answer changes.'))
 

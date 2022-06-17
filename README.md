@@ -65,13 +65,13 @@ python ConsecutiveUnsampledACTs.py
 Table V in the workshop paper shows that a sampling rate of 1 in 256 has a Rowhammer failure of 7e-6 for a threshold of 8192. To see this result, run:
 
 ```sh
-python RHSampling.py --th 8192 --prob 0.00390625 --cfg A 
+python RHSampling.py --th 8192 --rate 0.00390625 --cfg A 
 ```
 
 The scripts directory has a couple of scripts to produce the numbers presented in our paper.
 
 ## On Precision
 
-The code does a lot of floating point operations and it shows a warning whenever rounding occurs. Guess what? Rounding always occurs and thus there is always a degree of loss of precision. To gain confidence into the results, run the script several times with increased level of precisions. If the result does not change as precision increases, that's a good sign.
+ Given the nature of the computations above, the results are always inexact and rounded. However, the code uses the decimal module that supports arbitrary levels of precision. You can always increase the precision of the computation (the default is '100') and check whether the result changes (see the ``--prec`` flag).
 
-For some of the values in the paper, we had to increase the precision value to 400. (see the ``--prec`` flag).
+ In my experience with different parameters and configurations, the script can sometimes return a failure rate of '0E+00' or '1E+00'. This is an indication of an inadequate level of precision (the rowhammer failure rate can never 0% or 100%). In these cases, increase the precision and re-run the script until the failure rate changes either to a value very close to 0 or very close to 1.  
